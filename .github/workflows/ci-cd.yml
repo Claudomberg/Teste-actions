@@ -26,5 +26,5 @@ jobs:
 
       - name: Executar testes
         run: |
-          pip install pytest
-          pytest
+          pip install pytest flask
+          python -m pytest  

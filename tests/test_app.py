@@ -1,8 +1,12 @@
 from app import app
 
-client = app.test_client()
+def test_index():
+    client = app.test_client()
 
-def test_tasks():
-  response = client.get("/")
-  assert response.status_code == 200
-  assert len(response.get_json()) == 2
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert response.json == [
+        {"id": 1, "title": "Estudar Docker"},
+        {"id": 2, "title": "criar o pipeline"}
+    ]
